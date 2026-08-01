@@ -1,0 +1,55 @@
+[package]
+name = "rust-lints"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[lints.clippy]
+# CORRECTNESS/STYLE/PERF
+all = { level = "warn", priority = -1 }
+arithmetic_side_effects = "deny"
+as_conversions = "deny"
+exit = "deny"
+expect_used = "deny"
+indexing_slicing = "deny"
+# DEVELOPING LINTS
+nursery = { level = "warn", priority = -1 }
+panic = "deny"
+panic_in_result_fn = "deny"
+# UM, ACTUALLY
+pedantic = { level = "deny", priority = -1 }
+string_slice = "deny"
+todo = "deny"
+unchecked_time_subtraction = "deny"
+unimplemented = "deny"
+unreachable = "deny"
+# DENY PANICS
+unwrap_used = "deny"
+
+[lints.rust]
+unsafe_code = "deny"
+
+elided_lifetimes_in_paths = "warn"
+future_incompatible = { level = "warn", priority = -1 }
+nonstandard_style = { level = "warn", priority = -1 }
+rust_2018_idioms = { level = "warn", priority = -1 }
+rust_2021_prelude_collisions = "warn"
+semicolon_in_expressions_from_macros = "warn"
+trivial_numeric_casts = "warn"
+unexpected_cfgs = "warn"
+unnameable_types = "warn"
+# unreachable_pub = "warn"
+unsafe_op_in_unsafe_fn = "warn"  # may become default: https://github.com/rust-lang/rust/issues/71668
+unused_extern_crates = "warn"
+unused_import_braces = "warn"
+unused_lifetimes = "warn"
+unused_macro_rules = "warn"
+
+trivial_casts = "allow"
+unused_qualifications = "allow"
+
+[lints.rustdoc]
+all = "warn"
+missing_crate_level_docs = "warn"
+# broken_intra_doc_links already covered by `all`
